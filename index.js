@@ -7,15 +7,15 @@ function Sandwich(bread, ingredients, cut, name) {
   this.name = name;
 }
 
-function serve(customer) {
-    console.log("Hey " + customer + ", here's your " + this.name + ", enjoy!");
-}
+// function serve(customer) {
+//     console.log("Hey " + customer + ", here's your " + this.name + ", enjoy!");
+// }
 
 var blt = new Sandwich("white", ["bacon", "lettuce", "tomato", "mayo"], "rectangle", "BLT");
 var reuben = new Sandwich("rye", ["corned beef", "sauerkraut", "swiss", "russian dressing"], "diagonal", "Reuben");
 
-serve.apply(blt, ["Sara"]);
-serve.call(reuben, ["Dylan"]);
+// serve.apply(blt, ["Sara"]);
+// serve.call(reuben, ["Dylan"]);
 
 function deliverFood(customer, table) {
   console.log("Delivering " + this.name + " to " + customer + " at table " + table);
@@ -23,3 +23,17 @@ function deliverFood(customer, table) {
 
 deliverFood.call(blt, "Terry", "4");
 deliverFood.apply(reuben, ["Jesse", "15"]);
+
+
+function serve() {
+    if(arguments.length > 0) {
+        var customers = Array.prototype.slice.call(arguments);
+        last = customers.pop();
+        console.log(this.name + " for " + customers.join(", ") + " and " + last + ". Enjoy!");
+    }else {
+        console.log(this.name + ". Order up!");
+    }
+}
+
+serve.call(blt);
+serve.apply(reuben, ["Terry", "Tom", "Tabitha"]);
