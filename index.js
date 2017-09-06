@@ -55,3 +55,6 @@ var salad = {
 }
 
 salad.describe = pbj.describe.bind(salad);
+
+
+salad.describe();
