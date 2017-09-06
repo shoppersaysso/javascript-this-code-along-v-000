@@ -68,3 +68,5 @@ function Customer(name, tableNumber) {
   this.name = name;
   this.tableNumber = tableNumber;
 }
+var sally = new Customer("Sally", "4");
+
