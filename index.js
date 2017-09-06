@@ -63,3 +63,8 @@
 function visitTable() {
   console.log("The server is visiting " + this.name + " at table number " + this.tableNumber);
 }
+
+function Customer(name, tableNumber) {
+  this.name = name;
+  this.tableNumber = tableNumber;
+}
